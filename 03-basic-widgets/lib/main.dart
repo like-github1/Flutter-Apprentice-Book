@@ -7,7 +7,7 @@ void main() {
 
 class Fooderlich extends StatelessWidget {
   // 2
-  const Fooderlich({super.key});
+  const Fooderlich({Key? key}) :super(key:key);
   @override
   Widget build(BuildContext context) {
     // TODO: Create theme
