@@ -24,3 +24,25 @@ theme using the lightTextTheme you created in step 1.
 4. Finally, it declares a static method, dark, which returns the color tones for a dark
 theme using the darkTextTheme you created in step 2.
 Your next step is to utilize the theme
+
+Note: It’s generally a good idea to establish a common theme object for your
+app — especially when you work with designers. That gives you a single
+source of truth to access your theme across all your widgets
+
+* App structure and navigation
+Establishing your app’s structure from the beginning is important for the user
+experience. Applying the right navigation structure makes it easy for your users to
+navigate the information in your app.
+Fooderlich uses the Scaffold widget for its starting app structure. Scaffold is one
+of the most commonly-used Material widgets in Flutter. Next, you’ll learn how to
+implement it in your app.
+Using Scaffold
+The Scaffold widget implements all your basic visual layout structure needs. It’s
+composed of the following parts:
+• AppBar
+• BottomSheet
+• BottomNavigationBar
+• Drawer
+• FloatingActionButton
+• SnackBar
+Scaffold has a lot of functionality out of the box!
