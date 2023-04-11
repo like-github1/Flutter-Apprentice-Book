@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich/card2.dart';
+
+import 'card1.dart';
+import 'card3.dart';
 
 class Home extends StatefulWidget {
   //Creating Homepage
   const Home({Key? key}) : super(key: key);
-
   @override
   State<Home> createState() => _HomeState();
 }
@@ -11,15 +14,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   static List<Widget> pages = [
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
+    const Card1(),
+    const Card2(),
+   const Card3(),
   ];
   void _OnItemsTabed(int index) {
     setState(() {
@@ -38,7 +35,10 @@ class _HomeState extends State<Home> {
           //if this widget Contain any Theme use that theme otherwise use
           //Apptheme That are defined in Materialapp Theme Property
         )),
-        body: pages.elementAt(_selectedIndex),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: pages,
+        ),
         // 4
         bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Colors.redAccent,
@@ -57,20 +57,19 @@ class _HomeState extends State<Home> {
             showSelectedLabels: false,
             showUnselectedLabels: false,
             type: BottomNavigationBarType.fixed,
-            mouseCursor:
-                SystemMouseCursors.grab, //when runing on web like chrome
+            mouseCursor: SystemMouseCursors.grab,
+            //when runing on web like chrome
             //which Item is selected or highlited
             // 5
             currentIndex: _selectedIndex,
             onTap: _OnItemsTabed,
-
             // 6
-            items: <BottomNavigationBarItem>[
-              const BottomNavigationBarItem(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
                   icon: Icon(Icons.card_giftcard), label: 'Card'),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.card_giftcard), label: 'Card2'),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.card_giftcard), label: 'Card3'),
             ]));
   }
